@@ -28,7 +28,8 @@ logger.setLevel(logging.DEBUG)
 def getQcReport():
 	print("here in printted")
 	print('Ashok Commited')
-	print("Yahya Commited")
+	print("Ynotdc Commited")
+	
 
 	videoJson=videoAnalysis()
 	audioJson=audioAnalysis()
