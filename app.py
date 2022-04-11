@@ -29,6 +29,7 @@ def getQcReport():
 	print("here in printted")
 	print('Ashok Commited')
 	print('pravin commited')
+	print('pravin commited again')
 
 	videoJson=videoAnalysis()
 	audioJson=audioAnalysis()
