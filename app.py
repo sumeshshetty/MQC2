@@ -31,6 +31,7 @@ def getQcReport():
 	print('pravin commited')
 	print("sumesh2 commited")
 	print("yahya commited")
+	print("added to test new merge")
 
 	videoJson=videoAnalysis()
 	audioJson=audioAnalysis()
