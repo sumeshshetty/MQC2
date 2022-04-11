@@ -27,6 +27,7 @@ logger.setLevel(logging.DEBUG)
 @app.route('/api/v1/mediaqc/report',methods=['GET'])
 def getQcReport():
 	print("here in printted")
+	print('Ashok Commited')
 
 	videoJson=videoAnalysis()
 	audioJson=audioAnalysis()
