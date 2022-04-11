@@ -9,7 +9,7 @@ from flask_cors import CORS
 from utility.audioAnalysis import audioAnalysis
 from utility.videoAnalysis import videoAnalysis
 
-#test git bracnh ----newly added today---new form scifi1123
+#test git bracnh ----newly added today---new form scifi1123 !@###!!
 app = Flask(__name__)
 CORS(app)
 
@@ -29,6 +29,7 @@ def getQcReport():
 	print("here in printted")
 	print('Ashok Commited')
 	print('pravin commited')
+	print("sumesh2 commited")
 
 	videoJson=videoAnalysis()
 	audioJson=audioAnalysis()
