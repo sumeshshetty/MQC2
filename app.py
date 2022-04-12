@@ -9,7 +9,7 @@ from flask_cors import CORS
 from utility.audioAnalysis import audioAnalysis
 from utility.videoAnalysis import videoAnalysis
 
-#test git bracnh ----newly added today
+#test git bracnh ----newly added today---new form scifi1123 !@###!!
 app = Flask(__name__)
 CORS(app)
 
@@ -26,10 +26,12 @@ logger.setLevel(logging.DEBUG)
 
 @app.route('/api/v1/mediaqc/report',methods=['GET'])
 def getQcReport():
+
 	data = request.get_json()
 	print("*****data ******")
 	print(data)
 	print("*****data ******")
+
 
 	url=data['url']
 	#videoJson=videoAnalysis()
