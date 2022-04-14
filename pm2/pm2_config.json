@@ -3,8 +3,11 @@
     {
       "name": "PYTHON_MEDIA_QC_API",
       "script": "app.py",
+
       "interpreter":"python3",
-      "watch":"true",
+      
+
+      "watch":"true"
       
 
     }

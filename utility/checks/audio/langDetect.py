@@ -12,7 +12,9 @@ def langDetect(url):
 			except KeyError:
 				language ="Not able to detect language"
 			print(f"Language:", language)
+
 			return {"Audio Language":language}
+
 
 
 
