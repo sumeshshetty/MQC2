@@ -68,7 +68,8 @@ def freezeFrame(file_path):
             value=item.split(":")[1]
             
             new_dict.update({key:value})
-
+            
+    os.remove("freeze.txt")
     return {"Freeze Frame":final_list}
 
         
