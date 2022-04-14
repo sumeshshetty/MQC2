@@ -16,7 +16,7 @@ def bitdepthDetect(url):
 				elif media_info['bit_depth'] == 24:
 					print("Smooth Audio")
 					Message="Smooth Audio"
-				elif media_info['bit_depth'] == 32:
+				elif media_info['bit_depth'] == 32: 
 					print("Very Smooth Audio")
 					Message="Very Smooth Audio"
 				else:
