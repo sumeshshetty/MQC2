@@ -10,22 +10,3 @@ def langDetect(url):
 			language = media_info['language']
 			print(f"Language:", language)
 			return {"Audio Language Detected":language}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
