@@ -7,9 +7,12 @@ def langDetect(url):
 		if track.track_type == "Audio":
 			media_info=track.to_data()
 			print(media_info)
-			language = media_info['language']
+			try:
+				language = media_info['language']
+			except KeyError:
+				language ="Not able to detect language"
 			print(f"Language:", language)
-			return {"Audio Language Detected":language}
+			return {"Audio Language":language}
 
 
 
