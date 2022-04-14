@@ -34,12 +34,12 @@ def getQcReport():
 
 
 	url=data['url']
-	#videoJson=videoAnalysis()
+	videoJson=videoAnalysis(url)
 	audioJson=audioAnalysis(url)
 
 	final_report=[]
 
-	final_report.append({"Audio Report":audioJson})
+	final_report.append({"Audio Report":audioJson,"Video Report":videoJson})
 	return {"QC report":final_report}
 
 
