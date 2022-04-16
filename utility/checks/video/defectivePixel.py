@@ -38,16 +38,22 @@ def defectivePixel(file_path):
 			count+=1
 			for i in frame1:
 				im1=i
-				im1=Image.fromarray(im1)
-				
+				try:
+					im1=Image.fromarray(im1)
+					
 
-				for pixel in im1.getdata():
-					if pixel == (255, 255, 255): 
-						white += 1
-					if pixel==(0,0,0):  
-						black+=1
-					if pixel==(139,0,0):   
-						red+=1
+					for pixel in im1.getdata():
+						if pixel == (255, 255, 255): 
+							white += 1
+						if pixel==(0,0,0):  
+							black+=1
+						if pixel==(139,0,0):   
+							red+=1
+				except Exception as e:
+					print("Error:",e)
+					pixel_list.append({"Error message":str(e)})
+					print("pixel_list:",pixel_list)
+					return {"Defective Pixel data":pixel_list}
 					
 
 			time.sleep(0)
@@ -75,5 +81,5 @@ def defectivePixel(file_path):
 
 	cap.release() 
 	cv2.destroyAllWindows()
-
+	print(pixel_list)
 	return {"Defective Pixel data":pixel_list}
