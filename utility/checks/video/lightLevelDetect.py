@@ -2,6 +2,7 @@ from pprint import pprint
 from pymediainfo import MediaInfo
 
 def lightLevelDetect(url):
+	print("Excecuting audiosilenceDetect")
 	media_info = MediaInfo.parse(url)
 	
 	for track in media_info.tracks:
@@ -14,8 +15,8 @@ def lightLevelDetect(url):
 				MaxFALL = media_info['maximum_frameaverage_light_level']
 				print(f"MaxFALL:", MaxFALL)
 			except KeyError:
-				MaxCLL='NA'
-				MaxFALL='NA'
+				MaxCLL='Not an HDR10 Video'
+				MaxFALL='Not an HDR10 Video'
 				print("Not an HDR10 Video else MaxCLL and MaxFALL check Defective")
 	
 	return {'MaxCLL Detected' : MaxCLL,
