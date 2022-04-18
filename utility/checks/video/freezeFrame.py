@@ -9,6 +9,7 @@ import re
 
 
 def freezeFrame(file_path):
+    print("Excecuting freezeFrame")
 
     command=f'ffmpeg -i {file_path} -vf "freezedetect=n=0.01:d=2,metadata=mode=print:file=freeze.txt"  -map 0:v:0 -f null -'
     li=shlex.split(command)    # split command and store in list seprated by '',

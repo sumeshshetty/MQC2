@@ -4,6 +4,7 @@ import time
 from PIL import Image  
 
 def defectivePixel(file_path):
+	print("Excecuting defectivePixel")
 	white = 0
 	gray = 0
 	black = 0
@@ -50,7 +51,7 @@ def defectivePixel(file_path):
 						if pixel==(139,0,0):   
 							red+=1
 				except Exception as e:
-					print("Error:",e)
+					print("Error in defectivePixel:",e)
 					pixel_list.append({"Error message":str(e)})
 					print("pixel_list:",pixel_list)
 					return {"Defective Pixel data":pixel_list}

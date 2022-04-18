@@ -7,6 +7,7 @@ import numpy,scipy,scipy.fftpack
 import os
 
 def audioLevel(url):
+	print("Excecuting audioLevel")
 	video = moviepy.editor.VideoFileClip(url)
 	
 	audio = video.audio
@@ -45,6 +46,6 @@ def audioLevel(url):
 	"message":message
 	}
 	print(audio_dict)
-	return {"Audio data":audio_dict}
+	return {"Audio Levels":audio_dict}
 
 

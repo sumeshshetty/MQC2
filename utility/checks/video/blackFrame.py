@@ -6,6 +6,7 @@ import os
 import re
 
 def blackFrame(file_path):
+    print("Excecuting blackFrame")
     command=f'ffmpeg -i {file_path} -vf "blackdetect=d=0.05:pix_th=0.10" -an -f null - '
     li=shlex.split(command)    # split command and store in list seprated by '',
 
