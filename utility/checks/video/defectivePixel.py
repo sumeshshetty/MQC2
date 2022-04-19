@@ -74,12 +74,12 @@ def defectivePixel(file_path):
 				pixel_list.append(pixel_dict)
 				if len(currentframe)==10:
 					break
-
-		cap.release() 
+					
+		cap.release()
 		cv2.destroyAllWindows()
 	except Exception as err:
 		print(f"Error in defectivePixel : {err}")
 		pixel_list="Exception: No Defective Pixel Detected"
-    print(f"Defective Pixel: {pixel_list}")
+	print(f"Defective Pixel: {pixel_list}")
 
 	return {"Defective Pixel":pixel_list}
