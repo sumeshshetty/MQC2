@@ -8,6 +8,7 @@ import logging
 from flask_cors import CORS
 from utility.audioAnalysis import audioAnalysis
 from utility.videoAnalysis import videoAnalysis
+from utility.download_s3_object import download_s3_object
 
 #test git bracnh ----newly added today---new form scifi1123 !@###!!
 app = Flask(__name__)
@@ -35,8 +36,9 @@ def getQcReport():
 
 
 	url=data['url']
-	videoJson=videoAnalysis(url)
-	audioJson=audioAnalysis(url)
+	local_video_url=download_s3_object(url)
+	videoJson=videoAnalysis(local_video_url)
+	audioJson=audioAnalysis(local_video_url)
 
 	final_report=[]
 

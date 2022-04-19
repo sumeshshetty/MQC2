@@ -9,6 +9,7 @@ import time
 
 def DuplicateFrame(url):
 	try:
+		print("Excecuting DuplicateFrame")
 		cap = cv2.VideoCapture(url)
 		fps = cap.get(cv2.CAP_PROP_FPS)
 		fps=cap.set(cv2.CAP_PROP_POS_MSEC,7000)
