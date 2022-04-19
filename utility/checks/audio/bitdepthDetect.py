@@ -2,7 +2,7 @@ from pprint import pprint
 from pymediainfo import MediaInfo 
 def bitdepthDetect(url):
 	print("Excecuting bitdepthDetect")
-	media_info = MediaInfo.parse(url)
+	media_info = MediaInfo.parse(url, library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
 	final_list=[]
 	for track in media_info.tracks:
 		if track.track_type == "Audio":

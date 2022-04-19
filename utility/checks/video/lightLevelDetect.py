@@ -3,7 +3,7 @@ from pymediainfo import MediaInfo
 
 def lightLevelDetect(url):
 	print("Excecuting audiosilenceDetect")
-	media_info = MediaInfo.parse(url)
+	media_info = MediaInfo.parse(url, library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
 	
 	for track in media_info.tracks:
 		if track.track_type == 'Video':
