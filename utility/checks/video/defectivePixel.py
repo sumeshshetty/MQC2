@@ -78,8 +78,8 @@ def defectivePixel(file_path):
 		cap.release() 
 		cv2.destroyAllWindows()
 	except Exception as err:
-        print(f"Error in defectivePixel : {err}")
-        pixel_list="Exception: No Defective Pixel Detected"
+		print(f"Error in defectivePixel : {err}")
+		pixel_list="Exception: No Defective Pixel Detected"
     print(f"Defective Pixel: {pixel_list}")
 
 	return {"Defective Pixel":pixel_list}
