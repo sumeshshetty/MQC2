@@ -17,7 +17,7 @@ def DuplicateFrame(url):
 		count=1
 		value=[]
 		fra=[]
-		fp1=[]
+		Duplicate_Frames=[]
 		while read:
 			cap.set(cv2.CAP_PROP_POS_MSEC,count*1000)
 			read,frame=cap.read()
@@ -34,17 +34,15 @@ def DuplicateFrame(url):
 					frame_time=round(hours, 4) ,round(minutes, 4),round(seconds, 4)
 				else:
 					time_1=(round(hours, 4) ,round(minutes, 4), round(seconds, 4))
-					print(f"This Duplicate frame is exist {has2}  on time is {frame_time} to {time_1}")
+					Duplicate_Frames.append("This Duplicate frame exist on time is" +str(frame_time)+ "to" +str(time_1))
+					frame_duplicate="\n".join(Duplicate_Frames)
+
 				fra.append(frame)
 				count+=1
-		Duplicate_Frames={
-		"HashValue":has2,
-		"From":frame_time,
-		"To":time_1
-		}
+		
 	except Exception as err:
 		print(f"Error in DuplicateFrame : {err}")
 		Duplicate_Frames="Exception: No DuplicateFrame Detected"
 
-	print(f"Duplicate Frame: {Duplicate_Frames}")
-	return{"Duplicate Frame":Duplicate_Frames}
+	print(f"Duplicate Frame:\n {frame_duplicate}")
+	return{"Duplicate Frame":frame_duplicate}
