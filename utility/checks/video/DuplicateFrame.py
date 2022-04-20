@@ -42,7 +42,7 @@ def DuplicateFrame(url):
 		
 	except Exception as err:
 		print(f"Error in DuplicateFrame : {err}")
-		Duplicate_Frames="Exception: No DuplicateFrame Detected"
+		frame_duplicate="Exception: No DuplicateFrame Detected"
 
 	print(f"Duplicate Frame:\n {frame_duplicate}")
 	return{"Duplicate Frame":frame_duplicate}
