@@ -22,8 +22,8 @@ def audioLevel(url):
 
 		audio_samples,sample_rate=soundfile.read(file_path,dtype='int16')
 		number_samples=len(audio_samples)
-		print('Audio samples ',audio_samples)
-		print('Number of Sample',number_samples)
+		# print('Audio samples ',audio_samples)
+		# print('Number of Sample',number_samples)
 		print('Frequency is : ',sample_rate,'HZ')
 		if sample_rate<=5000:
 			print("Minimum Sound Level",sample_rate)

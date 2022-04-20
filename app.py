@@ -39,10 +39,11 @@ def getQcReport():
 	local_video_url=download_s3_object(url)
 	videoJson=videoAnalysis(local_video_url)
 	audioJson=audioAnalysis(local_video_url)
-
+	os.remove(local_video_url)
 	final_report=[]
 
 	final_report.append({"Audio Report":audioJson,"Video Report":videoJson})
+	print(f"final_report: {final_report}")
 	return {"QC report":final_report}
 
 

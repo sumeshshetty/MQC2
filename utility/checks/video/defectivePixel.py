@@ -55,7 +55,7 @@ def defectivePixel(file_path):
 						print("Error in defectivePixel:",e)
 						pixel_list.append({"Error message":str(e)})
 						print("pixel_list:",pixel_list)
-						return {"Defective Pixel data":pixel_list}
+						return {"Defective Pixel":pixel_list}
 						
 
 				time.sleep(0)
@@ -63,8 +63,8 @@ def defectivePixel(file_path):
 				
 				print('Stuck Pixel=' + str(white)+', Dead Pixel='+str(black)+',  Hot Pixel='+str(red))
 
-				print(round(hours, 4) ,":",round(minutes, 4),":",round(seconds, 4))
-				timestamp=str(round(hours, 4))+":"+str(round(minutes, 4))+":"+str(round(seconds, 4))
+				# print(round(hours, 4) ,":",round(minutes, 4),":",round(seconds, 4))
+				timestamp=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
 				pixel_dict={
 				"timestamp":timestamp,
 				"Stuck Pixel":white,

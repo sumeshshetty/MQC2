@@ -51,21 +51,14 @@ def freezeFrame(file_path):
 
         for item in refined_list:
             count=count+1
-            
+            key=item.split(":")[0]
+            value=item.split(":")[1]
             
             if count%3==0:
-                key=item.split(":")[0]
-                value=item.split(":")[1]
-                
                 new_dict.update({key:value})
                 final_list.append(new_dict)
-                
                 new_dict={}
-
             else:
-                key=item.split(":")[0]
-                value=item.split(":")[1]
-                
                 new_dict.update({key:value})
                 
         os.remove("freeze.txt")

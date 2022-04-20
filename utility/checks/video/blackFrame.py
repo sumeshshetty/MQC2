@@ -49,7 +49,7 @@ def blackFrame(file_path):
             
             
             if count%3==0:
-                key=item.split(":")[0]
+                key=item.split(":")[0].replace('black_','')
                 value=item.split(":")[1]
                 
                 new_dict.update({key:value})
@@ -58,7 +58,7 @@ def blackFrame(file_path):
                 new_dict={}
 
             else:
-                key=item.split(":")[0]
+                key=item.split(":")[0].replace('black_','')
                 value=item.split(":")[1]
                 
                 new_dict.update({key:value})
