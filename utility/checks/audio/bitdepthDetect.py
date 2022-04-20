@@ -8,7 +8,7 @@ def bitdepthDetect(url):
 		if track.track_type == "Audio":
 			try:
 				media_info=track.to_data()
-				print(media_info)
+				# print(media_info)
 				bit_depth = media_info["bit_depth"]
 				print(f"bit_depth:", bit_depth)
 				if media_info['bit_depth'] == 16:

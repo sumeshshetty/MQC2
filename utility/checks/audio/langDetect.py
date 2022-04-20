@@ -13,6 +13,7 @@ def langDetect(url):
 				language = media_info['language']
 			except KeyError:
 				language ="Exception: Not able to detect language"
-			print(f"Language:", language)
+	
+	print(f"Language:", language)
 
 	return {"Audio Language":language}
