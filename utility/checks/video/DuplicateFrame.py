@@ -31,18 +31,25 @@ def DuplicateFrame(url):
 				has2=str(has2)
 				if has2 not in value:
 					value.append(has2)
-					frame_time=round(hours, 4) ,round(minutes, 4),round(seconds, 4)
+					start_time=round(seconds, 4)
 				else:
-					time_1=(round(hours, 4) ,round(minutes, 4), round(seconds, 4))
-					Duplicate_Frames.append("This Duplicate frame exist on time is" +str(frame_time)+ "to" +str(time_1))
-					frame_duplicate="\n".join(Duplicate_Frames)
+					end_time=round(seconds, 4)
+					print(f"This Duplicate frame is exist {has2}  on time is {start_time} to {end_time}")
+					#in sec
+					# Create a list of all values in list of dictionaries
+					# list_of_all_values = [elem.get('start') for elem in Duplicate_Frames]
+					# print(list_of_all_values)
+					# if start_time not in list_of_all_values:
+					
+					dict_obj={"start":start_time,"end":end_time}
+					Duplicate_Frames.append(dict_obj.copy())
 
 				fra.append(frame)
 				count+=1
 		
 	except Exception as err:
 		print(f"Error in DuplicateFrame : {err}")
-		frame_duplicate="Exception: No DuplicateFrame Detected"
+		Duplicate_Frames="Exception: No DuplicateFrame Detected"
 
-	print(f"Duplicate Frame:\n {frame_duplicate}")
-	return{"Duplicate Frame":frame_duplicate}
+	print(f"Duplicate Frame:\n {Duplicate_Frames}")
+	return{"Duplicate Frame":Duplicate_Frames}
