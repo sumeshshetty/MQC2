@@ -9,3 +9,5 @@ ffmpeg-python==0.2.0
 Pillow==6.2.2
 moviepy==1.0.3
 SoundFile==0.10.3.post1
+scipy-1.7.3
+opencv-python-4.5.5.64
