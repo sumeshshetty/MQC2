@@ -31,9 +31,9 @@ def DuplicateFrame(url):
 				has2=str(has2)
 				if has2 not in value:
 					value.append(has2)
-					start_time=round(seconds, 4)
+					start_time=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
 				else:
-					end_time=round(seconds, 4)
+					end_time=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
 					print(f"This Duplicate frame is exist {has2}  on time is {start_time} to {end_time}")
 					#in sec
 					# Create a list of all values in list of dictionaries
