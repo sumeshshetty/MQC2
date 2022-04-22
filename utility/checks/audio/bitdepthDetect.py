@@ -35,6 +35,6 @@ def bitdepthDetect(url):
 			# 	print("Error in bit_depth",err)
 			# 	bit_depth="Null"
 			# 	Message="Exception: No bit_depth found"
-		dict_obj={'bit_depth' : bit_depth, 'Message' : Message}
-		final_list.append(dict_obj)
+	dict_obj={'bit_depth' : bit_depth, 'Message' : Message}
+	final_list.append(dict_obj)
 	return {'Audio BitDepth Detect': final_list}

@@ -10,6 +10,9 @@ pm2 logs
 
 Installation steps:
 
+Create logs, tmp folder inside the MQC2 dir.
+Create videos folder outside MQC2 dir
+
 sudo yum group install "Development Tools" -y 
 
 
@@ -28,8 +31,19 @@ node -e "console.log('Running Node.js ' + process.version)"
 npm install pm2@latest -g
 
 
+Alternative PM2 installation incase above doesn't work
+curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash  
+source ~/.bashrc
+nvm install node 
+nvm install lts/* 
+npm install pm2@latest -g
+
+
 SoundFile module:
 sudo yum -y install libsndfile
 
+
+OpenCV Issues:
+https://itsmycode.com/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directory/
 
 

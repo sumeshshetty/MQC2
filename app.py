@@ -36,13 +36,18 @@ def getQcReport():
 
 
 	url=data['url']
-	local_video_url=download_s3_object(url)
-	videoJson=videoAnalysis(local_video_url)
-	audioJson=audioAnalysis(local_video_url)
-	os.remove(local_video_url)
-	final_report=[]
+	local_video_url,status=download_s3_object(url)
+	if status=="Downloaded":
+		videoJson=videoAnalysis(local_video_url)
+		audioJson=audioAnalysis(local_video_url)
+		os.remove(local_video_url)
+		final_report=[]
 
-	final_report.append({"Audio Report":audioJson,"Video Report":videoJson})
+		final_report.append({"Audio Report":audioJson,"Video Report":videoJson})
+	else:
+		final_report="Please Check the S3 path provided"
+
+
 	print(f"final_report: {final_report}")
 	return {"QC report":final_report}
 
