@@ -1,3 +1,4 @@
+import os
 from pprint import pprint
 from pymediainfo import MediaInfo
 import moviepy.editor 
