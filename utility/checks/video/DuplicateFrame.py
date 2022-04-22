@@ -23,7 +23,7 @@ def DuplicateFrame(url):
 			read,frame=cap.read()
 			if read:
 				ti=cap.get(cv2.CAP_PROP_POS_MSEC)
-				seconds=(ti/1000)%60
+				seconds=(ti/1000)
 				minutes=(ti/(1000*60))%60
 				hours=(ti/(1000*60*60))%24
 				im2 = im.fromarray(frame)
@@ -31,9 +31,11 @@ def DuplicateFrame(url):
 				has2=str(has2)
 				if has2 not in value:
 					value.append(has2)
-					start_time=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
+					# start_time=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
+					start_time=str(round(seconds, 2)) 
 				else:
-					end_time=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
+					# end_time=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
+					end_time=str(round(seconds, 2)) #changed from 4-->2 decimals
 					print(f"This Duplicate frame is exist {has2}  on time is {start_time} to {end_time}")
 					#in sec
 					# Create a list of all values in list of dictionaries

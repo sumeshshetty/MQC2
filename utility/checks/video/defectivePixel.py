@@ -28,7 +28,7 @@ def defectivePixel(file_path):
 			if read:
 				ti=cap.get(cv2.CAP_PROP_POS_MSEC)
 				
-				seconds=(ti/1000)%60
+				seconds=(ti/1000)
 				minutes=(ti/(1000*60))%60
 				hours=(ti/(1000*60*60))%24
 
@@ -64,7 +64,8 @@ def defectivePixel(file_path):
 				print('Stuck Pixel=' + str(white)+', Dead Pixel='+str(black)+',  Hot Pixel='+str(red))
 
 				# print(round(hours, 4) ,":",round(minutes, 4),":",round(seconds, 4))
-				timestamp=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
+				# timestamp=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
+				timestamp=str(round(seconds, 2)) 
 				pixel_dict={
 				"timestamp":timestamp,
 				"Stuck Pixel":white,
@@ -75,8 +76,8 @@ def defectivePixel(file_path):
 				if len(currentframe)==10:
 					break
 					
-		cap.release()
-		cv2.destroyAllWindows()
+		# cap.release()
+		# cv2.destroyAllWindows()
 	except Exception as err:
 		print(f"Error in defectivePixel : {err}")
 		pixel_list="Exception: No Defective Pixel Detected"
