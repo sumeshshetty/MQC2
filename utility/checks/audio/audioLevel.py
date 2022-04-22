@@ -14,11 +14,9 @@ def audioLevel(url):
 		audio = video.audio
 		if  not audio:
 			print("No audio")
-			return {"Audio data":"no audio file"}
-		audio.write_audiofile("tmp/temp.wav")
-
+			return {"Audio Levels":"No Audio file Detected"}
 		file_path='tmp/temp.wav'
-
+		audio.write_audiofile(file_path)
 
 		audio_samples,sample_rate=soundfile.read(file_path,dtype='int16')
 		number_samples=len(audio_samples)

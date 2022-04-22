@@ -20,5 +20,6 @@ def videoAnalysis(url):
 	video_report.append(blackFramejson)
 	video_report.append(defectivePixeljson)
 	video_report.append(DuplicateFramejson)
+	video_report = list(filter(None, video_report))
 
 	return video_report

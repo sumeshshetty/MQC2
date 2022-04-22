@@ -15,9 +15,9 @@ def lightLevelDetect(url):
 				MaxFALL = media_info['maximum_frameaverage_light_level']
 				print(f"MaxFALL:", MaxFALL)
 			except KeyError:
-				MaxCLL='Not an HDR10 Video'
-				MaxFALL='Not an HDR10 Video'
+				MaxCLL=''
+				MaxFALL=''
 				print("Not an HDR10 Video else MaxCLL and MaxFALL check Defective")
-	
-	return {'MaxCLL Detected' : MaxCLL,
-			'MaxFALL Detected' : MaxFALL}
+	if MaxCLL:
+		response={'MaxCLL Detected' : MaxCLL,'MaxFALL Detected' : MaxFALL}
+		return response
