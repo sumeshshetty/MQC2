@@ -51,7 +51,7 @@ def DuplicateFrame(url):
 		
 	except Exception as err:
 		print(f"Error in DuplicateFrame : {err}")
-		Duplicate_Frames="Exception: No DuplicateFrame Detected"
-
-	print(f"Duplicate Frame:\n {Duplicate_Frames}")
-	return{"Duplicate Frame":Duplicate_Frames}
+		Duplicate_Frames=''
+	if Duplicate_Frames:
+		print(f"Duplicate Frame:\n {Duplicate_Frames}")
+		return{"Duplicate Frame":Duplicate_Frames}

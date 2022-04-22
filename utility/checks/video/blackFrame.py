@@ -65,6 +65,7 @@ def blackFrame(file_path):
         
     except Exception as err:
         print(f"Error in blackFrame : {err}")
-        final_list="Exception: No Black Frame Detected"
-    print(f"blackFrame final_list: {final_list}")
-    return {"Black Frame":final_list}
+        final_list=""
+    if final_list:
+        print(f"blackFrame final_list: {final_list}")
+        return {"Black Frame":final_list}

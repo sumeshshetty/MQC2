@@ -18,5 +18,6 @@ def audioAnalysis(url):
 
 	audio_report.append(bitdepthDetectjson)
 	audio_report.append(audioLeveljson)
+	audio_report = list(filter(None, audio_report))
 
 	return audio_report
