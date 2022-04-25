@@ -4,8 +4,6 @@ import numpy as np
 from time import sleep
 from collections import namedtuple
 
-#filename = 'C:/users/yahyasirguroh/downloads/96p_mp4.mp4'
-
 def BrightnessDetect(url):
 	BLevel = namedtuple("BLevel", ['brange', 'bval'])
 	_blevels = [
@@ -86,6 +84,8 @@ def BrightnessDetect(url):
     		Message="Brightness level is between 232 to 256"
     	print("Video Brightness level is very High Effective For Human Eyes")
     	Message="Video Brightness level is very High Effective For Human Eyes"
+
+    	
 
 
 
