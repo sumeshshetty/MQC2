@@ -51,8 +51,8 @@ def freezeFrame(file_path):
 
         for item in refined_list:
             count=count+1
-            key=item.split(":")[0]
-            value=item.split(":")[1]
+            key=item.split(":")[0].replace(" ","")
+            value=item.split(":")[1].replace(" ","")
             
             if count%3==0:
                 new_dict.update({key:value})
