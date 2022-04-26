@@ -40,15 +40,15 @@ def BrightnessDetect(url):
 
     if detect_brightness<=1:
     	print("video is very low brightness level")
-    	Message="video is very low brightness level"
+    	Message="Low Brightness level"
     elif detect_brightness==2:
         print("Video is Good Brightness level")
-        Message="Video is Good Brightness level"
+        Message="Good Brightness level"
     else:
         print("Video Brightness level is very High Effective For Human Eyes")
-    	Message="Video Brightness level is very High Effective For Human Eyes"
+    	Message="Bad Brightness level"
 
-    return{"Video Brightness":Message}    
+    return{"Video Brightness Level":detect_brightness , "Message":Message}    
 
     	
 

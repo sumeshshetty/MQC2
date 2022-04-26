@@ -6,6 +6,7 @@ from utility.checks.video.blackFrame import blackFrame
 from utility.checks.video.defectivePixel import defectivePixel
 from utility.checks.video.DuplicateFrame import DuplicateFrame
 from utility.checks.video.BrightnessDetect import BrightnessDetect
+from utility.checks.video.blackbarDetect import blackbarDetect
 def videoAnalysis(url):
 
 	#logoDetectjson=logoDetect()
@@ -15,6 +16,7 @@ def videoAnalysis(url):
 	defectivePixeljson=defectivePixel(url)
 	DuplicateFramejson=DuplicateFrame(url)
 	BrightnessDetectjson=BrightnessDetect(url)
+	blackbarDetectjson=blackbarDetect(url)
 
 	video_report=[]
 	video_report.append(lightLevelDetectjson)
@@ -23,6 +25,7 @@ def videoAnalysis(url):
 	video_report.append(defectivePixeljson)
 	video_report.append(DuplicateFramejson)
 	video_report.append(BrightnessDetectjson)
+	video_report.append(blackbarDetectjson)
 	video_report = list(filter(None, video_report))
 
 	return video_report
