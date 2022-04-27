@@ -5,11 +5,11 @@ import subprocess,shlex
 import os
 import re
 
-def freezeFrame(file_path):
+def freezeFrame(qc_details):
     try:
         print("Excecuting freezeFrame")
 
-        command=f'ffmpeg -i {file_path} -vf "freezedetect=n=0.01:d=2,metadata=mode=print:file=freeze.txt"  -map 0:v:0 -f null -'
+        command=f'ffmpeg -i {qc_details['video_url']} -vf "freezedetect=n=0.01:d=2,metadata=mode=print:file=freeze.txt"  -map 0:v:0 -f null -'
         li=shlex.split(command)    # split command and store in list seprated by '',
 
 

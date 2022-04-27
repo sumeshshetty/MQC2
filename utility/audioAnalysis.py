@@ -3,12 +3,12 @@ from utility.checks.audio.langDetect import langDetect
 from utility.checks.audio.audiosilenceDetect import audiosilenceDetect
 from utility.checks.audio.bitdepthDetect import bitdepthDetect
 from utility.checks.audio.audioLevel import audioLevel
-def audioAnalysis(url):
-	langDetectjson=langDetect(url)
-	audiosilenceDetectjson=audiosilenceDetect(url)
+def audioAnalysis(qc_details):
+	langDetectjson=langDetect(qc_details)
+	audiosilenceDetectjson=audiosilenceDetect(qc_details)
 
-	bitdepthDetectjson=bitdepthDetect(url)
-	audioLeveljson=audioLevel(url)
+	bitdepthDetectjson=bitdepthDetect(qc_details)
+	audioLeveljson=audioLevel(qc_details)
 
 
 

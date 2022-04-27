@@ -5,11 +5,11 @@ import shlex
 import boto3
 import itertools
 from pymediainfo import MediaInfo
-def blackbarDetect(url):
-    media_info = MediaInfo.parse(url, library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
+def blackbarDetect(qc_details):
+    # media_info = MediaInfo.parse(url, library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
     # print(media_info.tracks)
-    duration=int([track.to_data()['duration'] for track in media_info.tracks][0])/2000 ##Getting half the video duration
-    ffmpeg_cmd = f"ffmpeg -ss {duration} -i {url} -vframes 100  -vf cropdetect=24:16:0 /tmp/mp4.mp4 -y"  ##checking cropping at mid of the video for 100 frames
+    duration=int([track.to_data()['duration'] for track in qc_details['media_info_data'].tracks][0])/2000 ##Getting half the video duration
+    ffmpeg_cmd = f"ffmpeg -ss {duration} -i {qc_details['video_url']} -vframes 100  -vf cropdetect=24:16:0 /tmp/mp4.mp4 -y"  ##checking cropping at mid of the video for 100 frames
     command1 = shlex.split(ffmpeg_cmd)
     print(command1)
     p1 = subprocess.run(command1, stdout=subprocess.PIPE, stderr=subprocess.PIPE)

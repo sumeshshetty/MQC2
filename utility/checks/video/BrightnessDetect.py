@@ -4,7 +4,7 @@ import numpy as np
 from time import sleep
 from collections import namedtuple
 
-def BrightnessDetect(url):
+def BrightnessDetect(qc_details):
     BLevel = namedtuple("BLevel", ['brange', 'bval'])
     _blevels = [
         BLevel(brange=range(0,51), bval=0),
@@ -14,7 +14,7 @@ def BrightnessDetect(url):
         BLevel(brange=range(204,255), bval=4),
 
     ]
-    video = VideoFileClip(url)
+    video = VideoFileClip(qc_details['video_url'])
     duration = video.duration
     step = 5
     all_frame_b_values= []

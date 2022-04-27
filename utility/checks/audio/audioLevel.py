@@ -1,47 +1,36 @@
-
-
-from scipy import arange
 import moviepy.editor
-import soundfile
-import numpy,scipy,scipy.fftpack
 import os
 
-def audioLevel(url):
+def audioLevel(qc_details):
 	try:
 		print("Excecuting audioLevel")
-		video = moviepy.editor.VideoFileClip(url)
+		# video = moviepy.editor.VideoFileClip(url)
 		
-		audio = video.audio
-		if  not audio:
+		# audio = video.audio
+		if  not qc_details['audio_url']:
 			print("No audio")
 			return {"Audio Levels":"No Audio file Detected"}
-		file_path='tmp/temp.wav'
-		audio.write_audiofile(file_path)
-
-		audio_samples,sample_rate=soundfile.read(file_path,dtype='int16')
-		number_samples=len(audio_samples)
-		# print('Audio samples ',audio_samples)
-		# print('Number of Sample',number_samples)
-		print('Frequency is : ',sample_rate,'HZ')
-		if sample_rate<=5000:
-			print("Minimum Sound Level",sample_rate)
-			message=f"Minimum Sound Level: {sample_rate}"
-
-		duration=round(number_samples/sample_rate,2)
-		print('Audio Duration: {0}s'.format(duration))
-		if sample_rate>25000:
-			print("Maximum Sound Level",sample_rate)
-			message=f"Maximum Sound Level: {sample_rate}"
+		# file_path='tmp/temp.wav'
+		# audio.write_audiofile(file_path)
+		audio_segment = AudioSegment.from_file(qc_details['audio_url'])
+		dBFS=audio_segment.dBFS
+		print(f"Intensity-dBFS : {dBFS}")
 
 
-		freq_bins=numpy.arange(number_samples) * sample_rate/number_samples
-		if sample_rate>5000 and  sample_rate<20000:
-			print("Average Sound Level",sample_rate)
-			message=f"Average Sound Level: {sample_rate}"
+		# between -15 and -6 dBFS good
+		#<-15 bad
 
-		os.remove("tmp/temp.wav")
+		if -15<dBFS<-6:
+			print("good audio")
+			message="Good Audio Level"
+		if dBFS<-15:
+			print("bad audio")
+			message="Bad Audio Level"
+
+
+		# os.remove("tmp/temp.wav")
 		audio_dict={
-		"Frequency":sample_rate,
+		"Audio Decibels":dBFS,
 		"message":message
 		}
 		

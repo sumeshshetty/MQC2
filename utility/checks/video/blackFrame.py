@@ -5,10 +5,10 @@ import subprocess,shlex
 import os
 import re
 
-def blackFrame(file_path):
+def blackFrame(qc_details):
     try:
         print("Excecuting blackFrame")
-        command=f'ffmpeg -i {file_path} -vf "blackdetect=d=0.05:pix_th=0.10" -an -f null - '
+        command=f'ffmpeg -i {qc_details['video_url']} -vf "blackdetect=d=0.05:pix_th=0.10" -an -f null - '
         li=shlex.split(command)    # split command and store in list seprated by '',
 
 

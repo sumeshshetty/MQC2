@@ -2,18 +2,18 @@ import os
 from pprint import pprint
 from pymediainfo import MediaInfo
 import moviepy.editor 
-def bitdepthDetect(url):
+def bitdepthDetect(qc_details):
 	print("Excecuting bitdepthDetect")
-	video = moviepy.editor.VideoFileClip(url)
-	audio = video.audio
-	if  not audio:
+	# video = moviepy.editor.VideoFileClip(url)
+	# audio = video.audio
+	if  not qc_details['audio_url']:
 		print("No audio")
 		return {"Audio data":"no Audio in a Video"}
-	audio.write_audiofile("tmp/audio.wav")
-	file_path='tmp/audio.wav'
-	media_info = MediaInfo.parse(file_path, library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
+	# audio.write_audiofile("tmp/audio.wav")
+	# file_path='tmp/audio.wav'
+	media_info_data = MediaInfo.parse(qc_details['audio_url'], library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
 	final_list=[]
-	for track in media_info.tracks:
+	for track in media_info_data.tracks:
 		if track.track_type == "Audio":
 			#try:
 			media_info=track.to_data()

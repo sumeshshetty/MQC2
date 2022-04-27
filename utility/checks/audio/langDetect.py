@@ -1,11 +1,11 @@
 from pprint import pprint
 from pymediainfo import MediaInfo 
 
-def langDetect(url):
+def langDetect(qc_details):
 	print("Excecuting langDetect")
-	media_info = MediaInfo.parse(url, library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
+	# media_info = MediaInfo.parse(url, library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
 	language="No Audio Found"
-	for track in media_info.tracks:
+	for track in qc_details['media_info_data'].tracks:
 		if track.track_type == "Audio":
 			media_info=track.to_data()
 			# print(media_info)
