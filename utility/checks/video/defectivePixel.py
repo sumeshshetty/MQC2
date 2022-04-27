@@ -3,7 +3,7 @@ import os
 import time
 from PIL import Image  
 
-def defectivePixel(file_path):
+def defectivePixel(qc_details):
 	try:
 		print("Excecuting defectivePixel")
 		white = 0
@@ -20,7 +20,7 @@ def defectivePixel(file_path):
 
 		pixel_list = []
 
-		cap = cv2.VideoCapture(file_path) 
+		cap = cv2.VideoCapture(qc_details['video_url']) 
 		while(True): 
 			ret,frame = cap.read()
 			cap.set(cv2.CAP_PROP_POS_MSEC,count*1000)

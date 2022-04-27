@@ -8,7 +8,9 @@ import logging
 from flask_cors import CORS
 from utility.audioAnalysis import audioAnalysis
 from utility.videoAnalysis import videoAnalysis
-from utility.download_s3_object import download_s3_object
+from utility.backendoperations.download_s3_object import download_s3_object
+from utility.backendoperations.media_info_data import media_info_data
+from utility.backendoperations.create_audio_file import create_audio_file
 
 #test git bracnh ----newly added today---new form scifi1123 !@###!!
 app = Flask(__name__)
@@ -21,13 +23,13 @@ logging.basicConfig(filename="logs/common-1.log", filemode='a',format='%(asctime
 
 
 # Setting threshold level
-logger.setLevel(logging.DEBUG)
+# logger.setLevel(logging.DEBUG)
 
 
 
 @app.route('/api/v1/mediaqc/report',methods=['GET'])
 def getQcReport():
-
+	qc_details={}
 	data = request.get_json()
 
 	print("*****data ******")
@@ -38,9 +40,16 @@ def getQcReport():
 	url=data['url']
 	local_video_url,status=download_s3_object(url)
 	if status=="Downloaded":
-		videoJson=videoAnalysis(local_video_url)
-		audioJson=audioAnalysis(local_video_url)
-		os.remove(local_video_url)
+		qc_details['video_url']=local_video_url
+
+		qc_details=media_info_data(qc_details)
+		qc_details=create_audio_file(qc_details)
+
+		videoJson=videoAnalysis(qc_details)
+		audioJson=audioAnalysis(qc_details)
+		os.remove(qc_details['video_url'])
+		if qc_details['audio_url']:
+			os.remove(qc_details['audio_url'])
 		final_report=[]
 
 		final_report.append({"Audio Report":audioJson,"Video Report":videoJson})

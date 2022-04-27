@@ -1,8 +1,8 @@
 from pydub import AudioSegment, silence
 
-def audiosilenceDetect(url):
+def audiosilenceDetect(qc_details):
 	print("Excecuting audiosilenceDetect")
-	myaudio = intro = AudioSegment.from_file(url)
+	myaudio = AudioSegment.from_file(qc_details['audio_url'])
 	dBFS=myaudio.dBFS
 	try:
 		silence1 = silence.detect_silence(myaudio, min_silence_len=1000, silence_thresh=dBFS-16)

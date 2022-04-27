@@ -7,10 +7,10 @@ import imagehash
 import subprocess ,shlex
 import time
 
-def DuplicateFrame(url):
+def DuplicateFrame(qc_details):
 	try:
 		print("Excecuting DuplicateFrame")
-		cap = cv2.VideoCapture(url)
+		cap = cv2.VideoCapture(qc_details['video_url'])
 		fps = cap.get(cv2.CAP_PROP_FPS)
 		fps=cap.set(cv2.CAP_PROP_POS_MSEC,7000)
 		read,frame=cap.read()
