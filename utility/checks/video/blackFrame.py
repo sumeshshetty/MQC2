@@ -1,14 +1,14 @@
 import ffmpeg
 import sys
 from pprint import pprint
-import subprocess,shlex	
+import subprocess,shlex 
 import os
 import re
 
 def blackFrame(qc_details):
     try:
         print("Excecuting blackFrame")
-        command=f'ffmpeg -i {qc_details['video_url']} -vf "blackdetect=d=0.05:pix_th=0.10" -an -f null - '
+        command=f"ffmpeg -i {qc_details['video_url']} -vf 'blackdetect=d=0.05:pix_th=0.10' -an -f null - "
         li=shlex.split(command)    # split command and store in list seprated by '',
 
 
@@ -30,9 +30,9 @@ def blackFrame(qc_details):
         refined_list=[]
         for item in ff_list:
 
-        	if "[blackdetect @" in item:
-        		item=item.split(']')[1]
-        		refined_list.append(item)
+            if "[blackdetect @" in item:
+                item=item.split(']')[1]
+                refined_list.append(item)
 
         final_list=[]
         new_dict={}
@@ -41,7 +41,7 @@ def blackFrame(qc_details):
 
         tmp_list=[]
         for item in refined_list:
-        	tmp_list.extend(item.split(" "))
+            tmp_list.extend(item.split(" "))
         tmp_list = filter(lambda item: item, tmp_list)
 
         for item in tmp_list:

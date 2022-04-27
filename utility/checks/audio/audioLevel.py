@@ -1,5 +1,6 @@
 import moviepy.editor
 import os
+from pydub import AudioSegment
 
 def audioLevel(qc_details):
 	try:

@@ -65,7 +65,7 @@ def defectivePixel(qc_details):
 
 				# print(round(hours, 4) ,":",round(minutes, 4),":",round(seconds, 4))
 				# timestamp=str(round(hours, 2))+":"+str(round(minutes, 2))+":"+str(round(seconds, 2)) #changed from 4-->2 decimals
-				timestamp=str(round(seconds, 2)) 
+				timestamp=round(seconds, 2)
 				pixel_dict={
 				"timestamp":timestamp,
 				"Stuck Pixel":white,
