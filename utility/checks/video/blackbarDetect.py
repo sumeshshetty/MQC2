@@ -6,6 +6,7 @@ import boto3
 import itertools
 from pymediainfo import MediaInfo
 def blackbarDetect(qc_details):
+    print("Excecuting blackbarDetect")
     # media_info = MediaInfo.parse(url, library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
     # print(media_info.tracks)
     duration=int([track.to_data()['duration'] for track in qc_details['media_info_data'].tracks][0])/2000 ##Getting half the video duration

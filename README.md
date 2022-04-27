@@ -47,3 +47,9 @@ OpenCV Issues:
 https://itsmycode.com/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directory/
 
 
+MediaInfo libmediainfo issue:
+
+sudo cp -a /home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/. /lib64/
+
+
+

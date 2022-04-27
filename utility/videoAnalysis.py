@@ -12,7 +12,7 @@ def videoAnalysis(qc_details):
 	freezeFramejson=freezeFrame(qc_details)
 	blackFramejson=blackFrame(qc_details)
 	defectivePixeljson=defectivePixel(qc_details)
-	DuplicateFramejson=DuplicateFrame(qc_details)
+	# DuplicateFramejson=DuplicateFrame(qc_details)
 	BrightnessDetectjson=BrightnessDetect(qc_details)
 	blackbarDetectjson=blackbarDetect(qc_details)
 
@@ -21,7 +21,7 @@ def videoAnalysis(qc_details):
 	video_report.append(freezeFramejson)
 	video_report.append(blackFramejson)
 	video_report.append(defectivePixeljson)
-	video_report.append(DuplicateFramejson)
+	# video_report.append(DuplicateFramejson)
 	video_report.append(BrightnessDetectjson)
 	video_report.append(blackbarDetectjson)
 	video_report = list(filter(None, video_report))
