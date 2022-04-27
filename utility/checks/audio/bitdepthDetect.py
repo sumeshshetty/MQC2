@@ -11,7 +11,7 @@ def bitdepthDetect(qc_details):
 		return {"Audio data":"no Audio in a Video"}
 	# audio.write_audiofile("tmp/audio.wav")
 	# file_path='tmp/audio.wav'
-	media_info_data = MediaInfo.parse(qc_details['audio_url'], library_file='/home/ec2-user/mediaQcApi/MQC2/libs/libmediainfo/libmediainfo.so.0')
+	media_info_data = MediaInfo.parse(qc_details['audio_url'])
 	final_list=[]
 	for track in media_info_data.tracks:
 		if track.track_type == "Audio":

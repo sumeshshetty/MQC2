@@ -5,6 +5,7 @@ from time import sleep
 from collections import namedtuple
 
 def BrightnessDetect(qc_details):
+    print("Excecuting BrightnessDetect")
     BLevel = namedtuple("BLevel", ['brange', 'bval'])
     _blevels = [
         BLevel(brange=range(0,51), bval=0),
