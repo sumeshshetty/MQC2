@@ -38,10 +38,10 @@ def BrightnessDetect(qc_details):
     print ('video brightness : %g (values ranges from 0 to 10)' %(detect_brightness))
     #Message="video brightness : %g (values ranges from 0 to 10)" %(detect_brightness)
 
-    if detect_brightness<=1:
-        print("video is very low brightness level")
-        Message="Low Brightness level"
-    elif detect_brightness==2:
+    # if detect_brightness<=1:
+    #     print("video is very low brightness level")
+    #     Message="Bad Brightness level"
+    if detect_brightness==2:
         print("Video is Good Brightness level")
         Message="Good Brightness level"
     else:

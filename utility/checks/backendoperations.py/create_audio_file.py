@@ -5,7 +5,7 @@ def create_audio_file(qc_details):
 	
 	audio = video.audio
 	if  audio:
-		qc_details['audio_url']=f'{qc_details['video_url'].rsplit('.')[-2]}.wav'
+		qc_details['audio_url']=f"{qc_details['video_url'].rsplit('.')[-2]}.wav"
 		audio.write_audiofile(qc_details['audio_url'])
 	else:
 		print("No Audio file")
