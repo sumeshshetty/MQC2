@@ -5,6 +5,7 @@ from utility.checks.video.defectivePixel import defectivePixel
 from utility.checks.video.DuplicateFrame import DuplicateFrame
 from utility.checks.video.BrightnessDetect import BrightnessDetect
 from utility.checks.video.blackbarDetect import blackbarDetect
+from utility.checks.video.blurDetect import blurDetect
 def videoAnalysis(qc_details):
 
 	#logoDetectjson=logoDetect()
@@ -15,6 +16,7 @@ def videoAnalysis(qc_details):
 	# DuplicateFramejson=DuplicateFrame(qc_details)
 	BrightnessDetectjson=BrightnessDetect(qc_details)
 	blackbarDetectjson=blackbarDetect(qc_details)
+	blurDetectjson=blurDetect(qc_details)
 
 	video_report=[]
 	video_report.append(lightLevelDetectjson)
@@ -24,6 +26,8 @@ def videoAnalysis(qc_details):
 	# video_report.append(DuplicateFramejson)
 	video_report.append(BrightnessDetectjson)
 	video_report.append(blackbarDetectjson)
+	video_report.append(blurDetectjson)
+
 	video_report = list(filter(None, video_report))
 
 	return video_report
