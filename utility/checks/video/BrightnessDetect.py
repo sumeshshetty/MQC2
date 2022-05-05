@@ -8,13 +8,13 @@ def BrightnessDetect(qc_details):
     print("Excecuting BrightnessDetect")
     BLevel = namedtuple("BLevel", ['brange', 'bval'])
     _blevels = [
-        BLevel(brange=range(0,51), bval=0),
-        BLevel(brange=range(51,102), bval=1),
-        BLevel(brange=range(102,153), bval=2),
-        BLevel(brange=range(153,204), bval=3),
-        BLevel(brange=range(204,255), bval=4),
-
-    ]
+        BLevel(brange=range(0,40), bval=0),
+        BLevel(brange=range(40,80), bval=1),
+        BLevel(brange=range(80,120), bval=2),
+        BLevel(brange=range(120,160), bval=3),
+        BLevel(brange=range(160,200), bval=4),
+        BLevel(brange=range(200,255), bval=5)
+        ]
     video = VideoFileClip(qc_details['video_url'])
     duration = video.duration
     step = 5
@@ -39,10 +39,10 @@ def BrightnessDetect(qc_details):
     print ('video brightness : %g (values ranges from 0 to 10)' %(detect_brightness))
     #Message="video brightness : %g (values ranges from 0 to 10)" %(detect_brightness)
 
-    # if detect_brightness<=1:
-    #     print("video is very low brightness level")
-    #     Message="Bad Brightness level"
-    if detect_brightness==2:
+    if detect_brightness==0:
+        print("video is very low brightness level")
+        Message="Bad Brightness level"
+    if detect_brightness<=3:
         print("Video is Good Brightness level")
         Message="Good Brightness level"
     else:
