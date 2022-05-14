@@ -34,7 +34,7 @@ def HighFrequencyNoise(qc_details):
 			freq = xf[idx]
 			if freq>=2000:
 				print(f"High Frequency Noise at:{frame_time} sec with {int(freq)}Hz")
-				return {"High Frequency Noise":int(freq)"Hz",
+				return {"High Frequency Noise":str(freq)+" Hz",
 				       "TimeStamp":frame_time"sec"
 				       }
 			else:

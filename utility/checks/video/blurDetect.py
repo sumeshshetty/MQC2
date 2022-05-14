@@ -24,7 +24,7 @@ def getFrame(sec,vidcap):
         fm = cv2.Laplacian(gray, cv2.CV_64F).var()
         time_c=convert(sec)
         #count+=1
-        if fm < 100:
+        if fm < 300:
             text = "Blurry"
             #print ("image is blurry",fm,time_c)
             #uncomment for validation
