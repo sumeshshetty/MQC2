@@ -48,5 +48,9 @@ def BrightnessDetect(qc_details):
     else:
         print("Video Brightness level is very High Effective For Human Eyes")
         Message="Bad Brightness level"
+    bright_dict={
+                 'Brightness Level':detect_brightness,
+                 'Message':Message
+                }    
 
-    return{"Video Brightness Level":detect_brightness , "Message":Message}
+    return {"Brightness Detect":bright_dict}
