@@ -38,12 +38,14 @@ def HighFrequencyNoise(qc_details):
 				freq_dict={"Hz":freq,
 				           "TimeStamp":frame_time
 				          }
-				freq_list.append(freq_dict)	
+				freq_list.append(freq_dict)
+				
+				return{"High Frequency Noise":freq_list}	
 				
 			else:
 				pass
 			count+=1	
-	return{"High Frequency Noise":freq_list}		
+	# return{"High Frequency Noise":freq_list}		
 			
 
 
