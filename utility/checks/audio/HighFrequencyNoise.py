@@ -13,6 +13,7 @@ def HighFrequencyNoise(qc_details):
 	fps=cap.set(cv2.CAP_PROP_POS_MSEC,7000)
 	read,frame=cap.read()
 	count=1
+	freq_list=[]
 	while read:
 		cap.set(cv2.CAP_PROP_POS_MSEC,count*1000)
 		read,frame=cap.read()
@@ -34,12 +35,16 @@ def HighFrequencyNoise(qc_details):
 			freq = xf[idx]
 			if freq>=2000:
 				print(f"High Frequency Noise at:{frame_time} sec with {int(freq)}Hz")
-				return {"High Frequency Noise":int(freq)"Hz",
-				       "TimeStamp":frame_time"sec"
-				       }
+				freq_dict={"Hz":freq,
+				           "TimeStamp":frame_time
+				          }
+				freq_list.append(freq_dict)	
+				
 			else:
 				pass
 			count+=1	
+	return{"High Frequency Noise":freq_list}		
+			
 
 
 
