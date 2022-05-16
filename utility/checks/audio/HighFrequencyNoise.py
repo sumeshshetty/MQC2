@@ -41,7 +41,7 @@ def HighFrequencyNoise(qc_details):
 			else:
 				pass
 			count+=1
-		return{"High Frequency Noise":freq_list}		
+return{"High Frequency Noise":freq_list}		
 	# return{"High Frequency Noise":freq_list}		
 			
 
