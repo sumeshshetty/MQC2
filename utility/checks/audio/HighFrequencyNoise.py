@@ -37,12 +37,13 @@ def HighFrequencyNoise(qc_details):
 				print(f"High Frequency Noise at:{frame_time} sec with {int(freq)}Hz")
 				freq_dict={"Hz":freq,
 				           "TimeStamp":frame_time}
-				freq_list.append(freq_dict)           
-			else:
-				pass
+				freq_list.append(freq_dict)
 			count+=1
-return{"High Frequency Noise":freq_list}		
-	# return{"High Frequency Noise":freq_list}		
+	if len(freq_list)>0:
+		return{"High Frequency Noise":freq_list}
+	else:
+		return
+		
 			
 
 
