@@ -39,7 +39,6 @@ def HighFrequencyNoise(qc_details):
 				           "TimeStamp":frame_time
 				          }
 				freq_list.append(freq_dict)
-				
 				return{"High Frequency Noise":freq_list}	
 				
 			else:
