@@ -8,10 +8,14 @@ def contrastDetect(qc_details):
 
 	ret, frame = img.read()
 	Y = cv2.cvtColor(frame, cv2.COLOR_BGR2YUV)[:,:,0]
-	min = np.min(Y)
-	max = np.max(Y)
-	contrast = (max-min)/(max+min)
+	min1 = np.min(Y)
+	max1 = np.max(Y)
+
+	
+	contrast = (max1-min1)/(max1+min1)
 	print("contrast:",contrast)
+	
+
 	
 
 	if contrast<1.0:
@@ -24,7 +28,8 @@ def contrastDetect(qc_details):
 	# else:
 	#     print("Video contrast level is very High Effective For Human Eyes")
 	#     Message="Bad contrast level" 
-	return {"Contrast Detect":Message}
+	if Message:
+		return {"Contrast Detect":Message}
 
 
 
