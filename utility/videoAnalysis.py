@@ -6,6 +6,8 @@ from utility.checks.video.DuplicateFrame import DuplicateFrame
 from utility.checks.video.BrightnessDetect import BrightnessDetect
 from utility.checks.video.blackbarDetect import blackbarDetect
 from utility.checks.video.blurDetect import blurDetect
+from utility.checks.video.contrastDetect import contrastDetect
+
 def videoAnalysis(qc_details):
 
 	#logoDetectjson=logoDetect()
@@ -17,6 +19,8 @@ def videoAnalysis(qc_details):
 	BrightnessDetectjson=BrightnessDetect(qc_details)
 	blackbarDetectjson=blackbarDetect(qc_details)
 	blurDetectjson=blurDetect(qc_details)
+	contrastDetectjson=contrastDetect(qc_details)
+
 
 	video_report=[]
 	video_report.append(lightLevelDetectjson)
@@ -27,6 +31,7 @@ def videoAnalysis(qc_details):
 	video_report.append(BrightnessDetectjson)
 	video_report.append(blackbarDetectjson)
 	video_report.append(blurDetectjson)
+	video_report.append(contrastDetectjson)
 
 	video_report = list(filter(None, video_report))
 
