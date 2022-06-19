@@ -28,7 +28,7 @@ def contrastDetect(qc_details):
 	# else:
 	#     print("Video contrast level is very High Effective For Human Eyes")
 	#     Message="Bad contrast level" 
-	if Message:
+	if max1 != 0 and min1 != 0 :
 		return {"Contrast Detect":Message}
 
 
